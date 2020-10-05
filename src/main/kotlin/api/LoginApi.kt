@@ -25,7 +25,7 @@ fun Routing.registerLoginApi() {
             call.respond(MustacheContent("home.hbs", mapOf("LogginDetails" to logginDetails)))
         }
         else{
-            call.respondText("Please wait! I'm not ready :(", status = HttpStatusCode.InternalServerError)
+            call.respondText("Missing name or password", status = HttpStatusCode.InternalServerError)
         }
 
     }
