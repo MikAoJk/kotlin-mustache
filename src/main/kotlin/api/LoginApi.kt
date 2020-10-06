@@ -10,6 +10,7 @@ import io.ktor.routing.Routing
 import io.ktor.routing.get
 import io.ktor.routing.post
 import model.LogginDetails
+import service.LoginService
 
 
 fun Routing.registerLoginApi() {
@@ -20,7 +21,8 @@ fun Routing.registerLoginApi() {
         val parameters = call.receiveParameters()
         val name = parameters["name"]
         val password = parameters["password"]
-        if (name != null && password != null) {
+
+        if (name != null && password != null && LoginService().validateUser(name, password)) {
             val logginDetails = LogginDetails(name, password)
             call.respond(MustacheContent("home.hbs", mapOf("LogginDetails" to logginDetails)))
         }
