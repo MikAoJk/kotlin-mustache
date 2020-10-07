@@ -1,5 +1,5 @@
 # kotlin-mustache
-This project is for testing development with mustache, kotlin, grade and ktor
+This project is for testing development with mustache, kotlin, gradle and ktor
 
 
 ## Technologies used
