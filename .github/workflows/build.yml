@@ -12,6 +12,8 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: '13'
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
       - name: Checkout code
         uses: actions/checkout@master
       - uses: actions/cache@v1
