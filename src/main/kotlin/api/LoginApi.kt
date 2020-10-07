@@ -22,11 +22,14 @@ fun Routing.registerLoginApi() {
         val name = parameters["name"]
         val password = parameters["password"]
 
-        if (name != null && password != null && LoginService().validateUser(name, password)) {
-            val logginDetails = LogginDetails(name, password)
-            call.respond(MustacheContent("home.hbs", mapOf("LogginDetails" to logginDetails)))
-        }
-        else{
+        if (name != null && password != null) {
+            if (LoginService().validateUser(name, password)) {
+                val logginDetails = LogginDetails(name, password)
+                call.respond(MustacheContent("home.hbs", mapOf("LogginDetails" to logginDetails)))
+            } else {
+                call.respondText("Wrong name or password", status = HttpStatusCode.InternalServerError)
+            }
+        } else {
             call.respondText("Missing name or password", status = HttpStatusCode.InternalServerError)
         }
 
