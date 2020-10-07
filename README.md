@@ -8,15 +8,11 @@ This project is for testing development with mustache, kotlin, grade and ktor
 * Ktor
 * Mustache
 
-## Getting started
-## Running application locally
+#### Build and run tests
+To build locally and run the integration tests you can simply run `./gradlew shadowJar` or on windows 
+`gradlew.bat shadowJar`
 
-### Building the application
-#### Compile and package application
-To build locally and run the integration tests you can simply run `./mvnw install` or on windows 
-`mvnw.bat install`
-
-#### Running a localy
+#### Running localy
 on http://localhost:8080/login
 
 
