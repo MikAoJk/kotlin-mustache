@@ -1,4 +1,4 @@
-package application
+package no.kartveit.application
 import io.ktor.server.engine.ApplicationEngine
 import java.util.concurrent.TimeUnit
 

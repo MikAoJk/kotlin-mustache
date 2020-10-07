@@ -1,6 +1,6 @@
-package application
+package no.kartveit.application
 
-import api.registerLoginApi
+import no.kartveit.api.registerLoginApi
 import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 import com.github.mustachejava.DefaultMustacheFactory
 import io.ktor.application.call

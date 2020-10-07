@@ -1,4 +1,4 @@
-package model
+package no.kartveit.model
 
 data class LogginDetails(
     val name: String,

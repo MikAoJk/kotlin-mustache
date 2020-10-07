@@ -1,4 +1,4 @@
-package service
+package no.kartveit.service
 
 class LoginService {
     fun validateUser(userid: String, password: String): Boolean {

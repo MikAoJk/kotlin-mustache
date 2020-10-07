@@ -1,4 +1,4 @@
-package api
+package no.kartveit.api
 
 import io.ktor.application.call
 import io.ktor.http.HttpStatusCode
@@ -9,8 +9,8 @@ import io.ktor.response.respondText
 import io.ktor.routing.Routing
 import io.ktor.routing.get
 import io.ktor.routing.post
-import model.LogginDetails
-import service.LoginService
+import no.kartveit.model.LogginDetails
+import no.kartveit.service.LoginService
 
 
 fun Routing.registerLoginApi() {

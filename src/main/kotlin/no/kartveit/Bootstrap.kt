@@ -1,5 +1,7 @@
-import application.ApplicationServer
-import application.createApplicationEngine
+package no.kartveit
+
+import no.kartveit.application.ApplicationServer
+import no.kartveit.application.createApplicationEngine
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
