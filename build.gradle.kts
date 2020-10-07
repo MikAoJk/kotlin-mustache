@@ -6,6 +6,8 @@ version = "1.0.0-SNAPSHOT"
 val ktorVersion = "1.4.1"
 val junitJupiterVersion = "5.6.0"
 val kluentVersion = "1.61"
+val logbackVersion = "1.2.3"
+val logstashEncoderVersion = "5.1"
 
 
 plugins {
@@ -21,9 +23,13 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib"))
+
     implementation("io.ktor:ktor-server-netty:$ktorVersion")
     implementation("io.ktor:ktor-jackson:$ktorVersion")
     implementation("io.ktor:ktor-mustache:$ktorVersion")
+
+    implementation("ch.qos.logback:logback-classic:$logbackVersion")
+    implementation("net.logstash.logback:logstash-logback-encoder:$logstashEncoderVersion")
 
     testImplementation("org.amshove.kluent:kluent:$kluentVersion")
     testImplementation("org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion")
