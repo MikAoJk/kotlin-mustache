@@ -47,8 +47,8 @@ internal class LoginApiTest {
 
             with(handleRequest(HttpMethod.Post, "/login")
             {
-                addHeader("Accept", "no/kartveit/application/json")
-                addHeader("Content-Type", "no/kartveit/application/x-www-form-urlencoded")
+                addHeader("Accept", "application/json")
+                addHeader("Content-Type", "application/x-www-form-urlencoded")
                 setBody("name=joakim&password=1234")
 
             }) {
@@ -84,8 +84,8 @@ internal class LoginApiTest {
 
             with(handleRequest(HttpMethod.Post, "/login")
             {
-                addHeader("Accept", "no/kartveit/application/json")
-                addHeader("Content-Type", "no/kartveit/application/x-www-form-urlencoded")
+                addHeader("Accept", "application/json")
+                addHeader("Content-Type", "application/x-www-form-urlencoded")
                 setBody("name=per&password=1234")
 
             }) {
