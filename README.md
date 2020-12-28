@@ -1,3 +1,5 @@
+![build main branch](https://github.com/MikAoJk/kotlin-mustache/workflows/build%20main%20branch/badge.svg?branch=main)
+
 # kotlin-mustache
 This project is for testing development with mustache, kotlin, gradle and ktor
 
