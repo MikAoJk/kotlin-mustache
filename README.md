@@ -9,6 +9,7 @@ This project is for testing development with mustache, kotlin, gradle and ktor
 * Gradle
 * Ktor
 * Mustache
+* JDK 14
 
 #### Build and run tests
 To build locally and run the integration tests you can simply run `./gradlew shadowJar` or on windows 

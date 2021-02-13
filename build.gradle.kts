@@ -1,9 +1,11 @@
+import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
+import com.github.jengelman.gradle.plugins.shadow.transformers.ServiceFileTransformer
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 group = "no.kartveit"
 version = "1.0.0-SNAPSHOT"
 
-val ktorVersion = "1.4.1"
+val ktorVersion = "1.5.1"
 val junitJupiterVersion = "5.6.0"
 val kluentVersion = "1.61"
 val logbackVersion = "1.2.3"
@@ -12,7 +14,8 @@ val logstashEncoderVersion = "5.1"
 
 plugins {
     java
-    kotlin("jvm") version "1.4.10"
+    kotlin("jvm") version "1.4.30"
+    id("com.github.johnrengelman.shadow") version "6.1.0"
 }
 
 repositories {
@@ -44,6 +47,13 @@ dependencies {
 tasks {
     withType<KotlinCompile> {
         kotlinOptions.jvmTarget = "14"
+    }
+
+    withType<ShadowJar> {
+        transform(ServiceFileTransformer::class.java) {
+            setPath("META-INF/cxf")
+            include("bus-extensions.txt")
+        }
     }
 
     withType<Test> {
