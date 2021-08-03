@@ -6,7 +6,7 @@ import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
 
-val log: Logger = LoggerFactory.getLogger("no.kartveit")
+val log: Logger = LoggerFactory.getLogger("no.kartveit.Bootstrap")
 
 fun main() {
     val applicationEngine = createApplicationEngine()

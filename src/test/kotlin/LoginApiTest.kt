@@ -1,4 +1,3 @@
-import no.kartveit.api.registerLoginApi
 import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 import com.github.mustachejava.DefaultMustacheFactory
 import io.ktor.application.call
@@ -14,15 +13,14 @@ import io.ktor.routing.routing
 import io.ktor.server.testing.TestApplicationEngine
 import io.ktor.server.testing.handleRequest
 import io.ktor.server.testing.setBody
+import no.kartveit.api.registerLoginApi
 import org.amshove.kluent.shouldBeEqualTo
-
-
 import org.junit.jupiter.api.Test
 
-internal class LoginApiTest {
+class LoginApiTest {
 
     @Test
-    internal fun `Returns OK when loggin data is correct`() {
+    fun `Returns OK when loggin data is correct`() {
         with(TestApplicationEngine()) {
             start()
 
@@ -49,7 +47,7 @@ internal class LoginApiTest {
             {
                 addHeader("Accept", "application/json")
                 addHeader("Content-Type", "application/x-www-form-urlencoded")
-                setBody("name=joakim&password=1234")
+                setBody("username=joakim&password=1234")
 
             }) {
                 response.status() shouldBeEqualTo HttpStatusCode.OK
@@ -59,7 +57,7 @@ internal class LoginApiTest {
     }
 
     @Test
-    internal fun `Returns InternalServerError when loggin data is wrong`() {
+    fun `Returns InternalServerError when loggin data is wrong`() {
         with(TestApplicationEngine()) {
             start()
 
@@ -86,11 +84,11 @@ internal class LoginApiTest {
             {
                 addHeader("Accept", "application/json")
                 addHeader("Content-Type", "application/x-www-form-urlencoded")
-                setBody("name=per&password=1234")
+                setBody("username=per&password=1234")
 
             }) {
                 response.status() shouldBeEqualTo HttpStatusCode.InternalServerError
-                response.content shouldBeEqualTo "Wrong name or password"
+                response.content shouldBeEqualTo "Wrong username or password"
             }
 
         }

@@ -11,6 +11,11 @@ import io.ktor.routing.get
 import io.ktor.routing.post
 import no.kartveit.model.LogginDetails
 import no.kartveit.service.LoginService
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
+
+
+val log: Logger = LoggerFactory.getLogger("no.kartveit.LoginApi")
 
 
 fun Routing.registerLoginApi() {
@@ -19,18 +24,20 @@ fun Routing.registerLoginApi() {
     }
     post("/login") {
         val parameters = call.receiveParameters()
-        val name = parameters["name"]
+        val username = parameters["username"]
         val password = parameters["password"]
 
-        if (name != null && password != null) {
-            if (LoginService().validateUser(name, password)) {
-                val logginDetails = LogginDetails(name, password)
+        if (username != null && password != null) {
+            if (LoginService().validateUser(username, password)) {
+                val logginDetails = LogginDetails(username, password)
                 call.respond(MustacheContent("home.hbs", mapOf("LogginDetails" to logginDetails)))
             } else {
-                call.respondText("Wrong name or password", status = HttpStatusCode.InternalServerError)
+                log.warn("Wrong username or password")
+                call.respondText("Wrong username or password", status = HttpStatusCode.InternalServerError)
             }
         } else {
-            call.respondText("Missing name or password", status = HttpStatusCode.InternalServerError)
+            log.warn("Missing username or password")
+            call.respondText("Missing username or password", status = HttpStatusCode.InternalServerError)
         }
 
     }
