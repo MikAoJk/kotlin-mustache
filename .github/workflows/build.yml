@@ -5,7 +5,7 @@ on:
       - main
 jobs:
   build:
-    name: Checkout code and run ./gradlew clean build
+    name: Checkout code and test, clean build
     runs-on: ubuntu-latest
     steps:
       - name: Setup java
