@@ -17,8 +17,3 @@ To build locally and run the integration tests you can simply run `./gradlew sha
 
 #### Running localy
 on http://localhost:8080/login
-
-
-## Contact us
-### Code/project related questions can be sent to
-* Joakim Taule Kartveit, `joakimkartveit@gmail.com`
