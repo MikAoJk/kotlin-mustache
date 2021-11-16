@@ -14,7 +14,7 @@ val logstashEncoderVersion = "5.1"
 
 plugins {
     java
-    kotlin("jvm") version "1.5.30"
+    kotlin("jvm") version "1.6.0"
     id("com.github.johnrengelman.shadow") version "6.1.0"
 }
 
