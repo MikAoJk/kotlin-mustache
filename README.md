@@ -1,4 +1,4 @@
-![build main branch](https://github.com/MikAoJk/kotlin-mustache/workflows/build%20main%20branch/badge.svg?branch=main)
+[![build main branch](https://github.com/MikAoJk/kotlin-mustache/actions/workflows/build.yml/badge.svg)](https://github.com/MikAoJk/kotlin-mustache/actions/workflows/build.yml)
 
 # kotlin-mustache
 This project is for testing development with mustache, kotlin, gradle and ktor
