@@ -5,7 +5,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 group = "no.kartveit"
 version = "1.0.0-SNAPSHOT"
 
-val ktorVersion = "1.5.1"
+val ktorVersion = "1.6.6"
 val junitJupiterVersion = "5.6.0"
 val kluentVersion = "1.61"
 val logbackVersion = "1.2.3"
