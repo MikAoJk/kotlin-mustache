@@ -14,13 +14,13 @@ import io.ktor.server.testing.TestApplicationEngine
 import io.ktor.server.testing.handleRequest
 import io.ktor.server.testing.setBody
 import no.kartveit.api.registerLoginApi
-import org.amshove.kluent.shouldBeEqualTo
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
 class LoginApiTest {
 
     @Test
-    fun `Returns OK when loggin data is correct`() {
+    fun returnsOKWhenLoggingDataIsCorrect() {
         with(TestApplicationEngine()) {
             start()
 
@@ -50,14 +50,14 @@ class LoginApiTest {
                 setBody("username=joakim&password=1234")
 
             }) {
-                response.status() shouldBeEqualTo HttpStatusCode.OK
+                assertEquals(response.status(), HttpStatusCode.OK)
             }
 
         }
     }
 
     @Test
-    fun `Returns InternalServerError when loggin data is wrong`() {
+    fun returnsInternalServerErrorWhenLogginDataIsWrong() {
         with(TestApplicationEngine()) {
             start()
 
@@ -87,8 +87,8 @@ class LoginApiTest {
                 setBody("username=per&password=1234")
 
             }) {
-                response.status() shouldBeEqualTo HttpStatusCode.InternalServerError
-                response.content shouldBeEqualTo "Wrong username or password"
+                assertEquals(response.status(), HttpStatusCode.InternalServerError)
+                assertEquals(response.content, "Wrong username or password")
             }
 
         }
