@@ -87,7 +87,7 @@ class LoginApiTest {
                 setBody("username=per&password=1234")
 
             }) {
-                assertEquals(response.status(), HttpStatusCode.InternalServerError)
+                assertEquals(response.status(), HttpStatusCode.Forbidden)
                 assertEquals(response.content, "Wrong username or password")
             }
 

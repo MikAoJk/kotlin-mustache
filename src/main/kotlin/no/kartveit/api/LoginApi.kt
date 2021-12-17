@@ -29,15 +29,15 @@ fun Routing.registerLoginApi() {
 
         if (username != null && password != null) {
             if (LoginService().validateUser(username, password)) {
-                val logginDetails = LogginDetails(username, password)
-                call.respond(MustacheContent("home.hbs", mapOf("LogginDetails" to logginDetails)))
+                val loginDetails = LogginDetails(username, password)
+                call.respond(MustacheContent("home.hbs", mapOf("LogginDetails" to loginDetails)))
             } else {
                 log.warn("Wrong username or password")
-                call.respondText("Wrong username or password", status = HttpStatusCode.InternalServerError)
+                call.respondText("Wrong username or password", status = HttpStatusCode.Forbidden)
             }
         } else {
             log.warn("Missing username or password")
-            call.respondText("Missing username or password", status = HttpStatusCode.InternalServerError)
+            call.respondText("Missing username or password", status = HttpStatusCode.Forbidden)
         }
 
     }

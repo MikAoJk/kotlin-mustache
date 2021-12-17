@@ -1,15 +1,20 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <title>
         First Web application
     </title>
 </head>
 <body>
-<font color="red">{{errorMessage}}</font>
+<p>{{errorMessage}}</p>
 <form method="post">
-    Username : <input type="text" name="username"/>
-    Password : <input type="password" name="password"/>
-    <input type="submit"/>
+    Username : <label>
+    <input type="text" name="username" placeholder="Enter Username" required/>
+</label>
+    Password : <label>
+    <input type="password" name="password" placeholder="Enter Password" required/>
+</label>
+    <input type="submit" value="Sign in"/>
 </form>
 </body>
 </html>

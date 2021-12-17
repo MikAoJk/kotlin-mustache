@@ -5,10 +5,10 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 group = "no.kartveit"
 version = "1.0.0-SNAPSHOT"
 
-val ktorVersion = "1.6.6"
-val junitJupiterVersion = "5.8.1"
-val logbackVersion = "1.2.7"
-val logstashEncoderVersion = "7.0"
+val ktorVersion = "1.6.7"
+val junitJupiterVersion = "5.8.2"
+val logbackVersion = "1.2.8"
+val logstashEncoderVersion = "7.0.1"
 val kotlinVersion = "1.6.0"
 
 
