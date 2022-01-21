@@ -12,8 +12,11 @@ This project is for testing development with mustache, kotlin, gradle and ktor
 * JDK 16
 
 #### Build and run tests
-To build locally and run the integration tests you can simply run `./gradlew shadowJar` or on windows 
-`gradlew.bat shadowJar`
+To build locally and run the integration tests you can simply run `./gradlew clean build` or on windows
+`gradlew.bat clean build`
 
-#### Running localy
-on http://localhost:8080/login
+## Run the main class in your favoritt IDE(Intellij)
+Go to src/main/kotlin/Bootstrap.kt and run it
+
+## Testing login endpoint locally
+Open a web browser and go to this side http://localhost:8080/login
