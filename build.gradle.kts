@@ -5,9 +5,12 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 group = "no.kartveit"
 version = "1.0.0-SNAPSHOT"
 
-val ktorVersion = "1.6.7"
+
+val jvmTargetVersion = "17"
+
+val ktorVersion = "1.6.8"
 val junitJupiterVersion = "5.8.2"
-val logbackVersion = "1.2.10"
+val logbackVersion = "1.2.11"
 val logstashEncoderVersion = "7.0.1"
 val kotlinVersion = "1.6.10"
 
@@ -15,7 +18,7 @@ val kotlinVersion = "1.6.10"
 plugins {
     java
     kotlin("jvm") version "1.6.10"
-    id("com.github.johnrengelman.shadow") version "6.1.0"
+    id("com.github.johnrengelman.shadow") version "7.1.2"
 }
 
 repositories {
@@ -44,7 +47,11 @@ dependencies {
 
 tasks {
     withType<KotlinCompile> {
-        kotlinOptions.jvmTarget = "16"
+        kotlinOptions.jvmTarget = jvmTargetVersion
+    }
+
+    named<KotlinCompile>("compileTestKotlin") {
+        kotlinOptions.jvmTarget = jvmTargetVersion
     }
 
     withType<ShadowJar> {
