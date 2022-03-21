@@ -11,6 +11,7 @@ Architectural Decision can be found here: https://mikaojk.github.io/kotlin-musta
 * Ktor
 * Mustache
 * JDK 17
+* Npm
 
 #### Build and run tests
 To build locally and run the integration tests you can simply run `./gradlew clean build` or on windows
