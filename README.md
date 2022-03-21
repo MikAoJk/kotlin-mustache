@@ -3,6 +3,7 @@
 # kotlin-mustache
 This project is for testing development with mustache, kotlin, gradle and ktor
 
+Architectural Decision can be found here: https://mikaojk.github.io/kotlin-mustache/decisions/
 
 ## Technologies used
 * Kotlin
