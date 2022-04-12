@@ -1,15 +1,14 @@
 import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 import com.github.mustachejava.DefaultMustacheFactory
-import io.ktor.application.call
-import io.ktor.application.install
-import io.ktor.features.ContentNegotiation
-import io.ktor.features.StatusPages
+import io.ktor.server.application.install
 import io.ktor.http.HttpMethod
 import io.ktor.http.HttpStatusCode
-import io.ktor.jackson.jackson
-import io.ktor.mustache.Mustache
-import io.ktor.response.respond
-import io.ktor.routing.routing
+import io.ktor.serialization.jackson.jackson
+import io.ktor.server.mustache.Mustache
+import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.server.plugins.statuspages.StatusPages
+import io.ktor.server.response.respondText
+import io.ktor.server.routing.routing
 import io.ktor.server.testing.TestApplicationEngine
 import io.ktor.server.testing.handleRequest
 import io.ktor.server.testing.setBody
@@ -37,9 +36,11 @@ class LoginApiTest {
                 }
             }
             application.install(StatusPages) {
-                exception<Throwable> { cause ->
-                    call.respond(HttpStatusCode.InternalServerError, cause.message ?: "Unknown error")
-                    throw cause
+                exception<Throwable> { call, cause ->
+                    call.respondText(
+                        text = "500: $cause.message ?: Unknown error",
+                        status = io.ktor.http.HttpStatusCode.InternalServerError
+                    )
                 }
             }
 
@@ -74,9 +75,11 @@ class LoginApiTest {
                 }
             }
             application.install(StatusPages) {
-                exception<Throwable> { cause ->
-                    call.respond(HttpStatusCode.InternalServerError, cause.message ?: "Unknown error")
-                    throw cause
+                exception<Throwable> { call, cause ->
+                    call.respondText(
+                        text = "500: $cause.message ?: Unknown error",
+                        status = HttpStatusCode.InternalServerError
+                    )
                 }
             }
 

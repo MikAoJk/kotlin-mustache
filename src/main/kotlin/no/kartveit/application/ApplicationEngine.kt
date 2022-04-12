@@ -1,20 +1,20 @@
 package no.kartveit.application
 
-import no.kartveit.api.registerLoginApi
 import com.fasterxml.jackson.module.kotlin.registerKotlinModule
+import no.kartveit.api.registerLoginApi
 import com.github.mustachejava.DefaultMustacheFactory
-import io.ktor.application.call
-import io.ktor.application.install
-import io.ktor.features.ContentNegotiation
-import io.ktor.features.StatusPages
+import io.ktor.server.application.install
+
 import io.ktor.http.HttpStatusCode
-import io.ktor.jackson.jackson
-import io.ktor.mustache.Mustache
-import io.ktor.response.respond
-import io.ktor.routing.routing
+import io.ktor.serialization.jackson.jackson
+import io.ktor.server.mustache.Mustache
+import io.ktor.server.routing.routing
 import io.ktor.server.engine.ApplicationEngine
 import io.ktor.server.engine.embeddedServer
 import io.ktor.server.netty.Netty
+import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.server.plugins.statuspages.StatusPages
+import io.ktor.server.response.respondText
 
 
 fun createApplicationEngine(): ApplicationEngine =
@@ -31,9 +31,11 @@ fun createApplicationEngine(): ApplicationEngine =
             }
         }
         install(StatusPages) {
-            exception<Throwable> { cause ->
-                call.respond(HttpStatusCode.InternalServerError, cause.message ?: "Unknown error")
-                throw cause
+            exception<Throwable> { call, cause ->
+                call.respondText(
+                    text = "500: $cause.message ?: Unknown error",
+                    status = HttpStatusCode.InternalServerError
+                )
             }
         }
     }
