@@ -14,6 +14,6 @@ class ApplicationServer(
     }
 
     fun start() {
-        applicationServer.start(false)
+        applicationServer.start(true)
     }
 }
