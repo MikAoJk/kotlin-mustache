@@ -8,16 +8,16 @@ version = "1.0.0-SNAPSHOT"
 
 val jvmTargetVersion = "17"
 
-val ktorVersion = "2.0.0"
+val ktorVersion = "2.0.1"
 val junitJupiterVersion = "5.8.2"
 val logbackVersion = "1.2.11"
 val logstashEncoderVersion = "7.0.1"
-val kotlinVersion = "1.6.20"
+val kotlinVersion = "1.6.21"
 
 
 plugins {
     java
-    kotlin("jvm") version "1.6.20"
+    kotlin("jvm") version "1.6.21"
     id("com.github.johnrengelman.shadow") version "7.1.2"
 }
 
