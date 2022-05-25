@@ -1,4 +1,7 @@
 [![build main branch](https://github.com/MikAoJk/kotlin-mustache/actions/workflows/build.yml/badge.svg)](https://github.com/MikAoJk/kotlin-mustache/actions/workflows/build.yml)
+![GitHub issues](https://img.shields.io/github/issues-raw/MikAoJk/kotlin-mustache)
+![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/MikAoJk/kotlin-mustache)
+![GitHub](https://img.shields.io/github/license/MikAoJk/kotlin-mustache)
 
 # kotlin-mustache
 This project is for testing development with mustache, kotlin, gradle and ktor
