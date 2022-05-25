@@ -1,3 +1,5 @@
+package no.kartveit.api
+
 import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 import com.github.mustachejava.DefaultMustacheFactory
 import io.ktor.server.application.install
@@ -12,11 +14,10 @@ import io.ktor.server.routing.routing
 import io.ktor.server.testing.TestApplicationEngine
 import io.ktor.server.testing.handleRequest
 import io.ktor.server.testing.setBody
-import no.kartveit.api.registerLoginApi
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
-class LoginApiTest {
+internal class LoginApiTest {
 
     @Test
     fun returnsOKWhenLoggingDataIsCorrect() {

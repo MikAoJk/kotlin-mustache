@@ -7,18 +7,18 @@ import io.ktor.server.application.install
 
 import io.ktor.http.HttpStatusCode
 import io.ktor.serialization.jackson.jackson
+import io.ktor.server.cio.CIO
 import io.ktor.server.mustache.Mustache
 import io.ktor.server.routing.routing
 import io.ktor.server.engine.ApplicationEngine
 import io.ktor.server.engine.embeddedServer
-import io.ktor.server.netty.Netty
 import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.server.plugins.statuspages.StatusPages
 import io.ktor.server.response.respondText
 
 
 fun createApplicationEngine(): ApplicationEngine =
-    embeddedServer(Netty, 8080) {
+    embeddedServer(CIO, 8080) {
         routing {
             registerLoginApi()
         }
