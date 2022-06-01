@@ -27,3 +27,11 @@ Go to src/main/kotlin/Bootstrap.kt and run it
 ## Testing the login endpoint locally
 Open a web browser and go to this side http://localhost:8080/login </br>
 Username is joakim and password is 1234
+
+### Upgrading the gradle wrapper
+Find the newest version of gradle here: https://gradle.org/releases/ Then run this command:
+
+```./gradlew wrapper --gradle-version $gradleVersjon```
+
+## Inquiries
+Questions related to the code or project can be asked as issues here on GitHub.
