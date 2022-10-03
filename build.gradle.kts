@@ -12,7 +12,7 @@ val ktorVersion = "2.1.2"
 val junitJupiterVersion = "5.9.1"
 val logbackVersion = "1.4.3"
 val logstashEncoderVersion = "7.2"
-val kotlinVersion = "1.7.10"
+val kotlinVersion = "1.7.20"
 
 
 plugins {
