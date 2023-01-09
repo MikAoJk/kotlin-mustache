@@ -8,7 +8,7 @@ version = "1.0.0-SNAPSHOT"
 
 val jvmTargetVersion = "17"
 
-val ktorVersion = "2.2.1"
+val ktorVersion = "2.2.2"
 val junitJupiterVersion = "5.9.1"
 val logbackVersion = "1.4.5"
 val logstashEncoderVersion = "7.2"
