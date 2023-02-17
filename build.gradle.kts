@@ -10,7 +10,7 @@ val jvmTargetVersion = "17"
 
 val ktorVersion = "2.2.3"
 val junitJupiterVersion = "5.9.2"
-val logbackVersion = "1.2.11"
+val logbackVersion = "1.4.5"
 val logstashEncoderVersion = "7.2"
 val kotlinVersion = "1.8.10"
 
@@ -37,7 +37,6 @@ dependencies {
     implementation("io.ktor:ktor-server-cio-jvm:$ktorVersion")
     implementation("io.ktor:ktor-server-content-negotiation-jvm:$ktorVersion")
     implementation("io.ktor:ktor-server-mustache-jvm:$ktorVersion")
-    implementation("io.ktor:ktor-server-status-pages:$ktorVersion")
     implementation("io.ktor:ktor-server-content-negotiation:$ktorVersion")
     implementation("io.ktor:ktor-serialization-jackson:$ktorVersion")
 
