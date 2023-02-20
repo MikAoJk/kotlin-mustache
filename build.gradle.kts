@@ -11,7 +11,7 @@ val jvmTargetVersion = "17"
 val ktorVersion = "2.2.3"
 val junitJupiterVersion = "5.9.2"
 val logbackVersion = "1.4.5"
-val logstashEncoderVersion = "7.2"
+val logstashEncoderVersion = "7.3"
 val kotlinVersion = "1.8.10"
 
 
