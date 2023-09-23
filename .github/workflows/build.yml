@@ -1,8 +1,6 @@
 name: build main branch
 on:
   push:
-    branches:
-      - main
 jobs:
   build:
     name: Checkout code and test, clean build
