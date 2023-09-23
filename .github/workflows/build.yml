@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setup java
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v3.13.0
         with:
           distribution: 'adopt'
           java-version: '17'
