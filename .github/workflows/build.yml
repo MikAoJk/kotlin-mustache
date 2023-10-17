@@ -1,8 +1,6 @@
 name: build main branch
 on:
   push:
-    branches:
-      - main
 jobs:
   build:
     name: Checkout code and test, clean build
@@ -12,7 +10,7 @@ jobs:
         uses: actions/setup-java@v3.13.0
         with:
           distribution: 'adopt'
-          java-version: '17'
+          java-version: '21'
       - name: Checkout code
         uses: actions/checkout@master
       - uses: actions/cache@v3

@@ -6,7 +6,7 @@ group = "no.kartveit"
 version = "1.0.0-SNAPSHOT"
 
 
-val jvmTargetVersion = "17"
+val jvmTargetVersion = "21"
 
 val ktorVersion = "2.3.5"
 val junitJupiterVersion = "5.10.0"
