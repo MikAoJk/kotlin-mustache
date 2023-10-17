@@ -8,6 +8,7 @@
 
     <logger name="no.kartveit" level="INFO"/>
 
+    <!-- Try to change root level="INFO" from "INFO to "DEBUG" -->
     <root level="INFO">
         <appender-ref ref="stdout_json"/>
     </root>

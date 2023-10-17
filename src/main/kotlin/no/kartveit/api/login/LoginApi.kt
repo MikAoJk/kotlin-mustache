@@ -1,4 +1,4 @@
-package no.kartveit.api
+package no.kartveit.api.login
 
 import io.ktor.server.application.call
 import io.ktor.http.HttpStatusCode
@@ -9,13 +9,9 @@ import io.ktor.server.response.respondText
 import io.ktor.server.routing.Routing
 import io.ktor.server.routing.get
 import io.ktor.server.routing.post
+import no.kartveit.log
 import no.kartveit.model.LogginDetails
 import no.kartveit.service.LoginService
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
-
-
-val log: Logger = LoggerFactory.getLogger("no.kartveit.LoginApi")
 
 
 fun Routing.registerLoginApi() {

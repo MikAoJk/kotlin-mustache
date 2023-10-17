@@ -1,12 +1,6 @@
-import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
-import com.github.jengelman.gradle.plugins.shadow.transformers.ServiceFileTransformer
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 group = "no.kartveit"
 version = "1.0.0-SNAPSHOT"
 
-
-val jvmTargetVersion = "21"
 
 val ktorVersion = "2.3.5"
 val junitJupiterVersion = "5.10.0"
@@ -14,59 +8,58 @@ val logbackVersion = "1.4.11"
 val logstashEncoderVersion = "7.4"
 val kotlinVersion = "1.9.10"
 
+val commonsCodecVersion = "1.16.0"
 
 plugins {
-    java
+    id("application")
     kotlin("jvm") version "1.9.10"
-    id("com.github.johnrengelman.shadow") version "8.1.1"
+}
+
+application {
+    mainClass.set("no.kartveit.ApplicationKt")
 }
 
 repositories {
     mavenCentral()
-
 }
 
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion")
 
     implementation("ch.qos.logback:logback-classic:$logbackVersion")
     implementation("net.logstash.logback:logstash-logback-encoder:$logstashEncoderVersion")
+
     implementation("io.ktor:ktor-server-status-pages:$ktorVersion")
     implementation("io.ktor:ktor-server-content-negotiation:$ktorVersion")
-    implementation("io.ktor:ktor-server-cio-jvm:$ktorVersion")
+    implementation("io.ktor:ktor-server-netty-jvm:$ktorVersion")
     implementation("io.ktor:ktor-server-content-negotiation-jvm:$ktorVersion")
     implementation("io.ktor:ktor-server-mustache-jvm:$ktorVersion")
     implementation("io.ktor:ktor-server-content-negotiation:$ktorVersion")
     implementation("io.ktor:ktor-serialization-jackson:$ktorVersion")
 
-    testImplementation("org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion")
-    testImplementation("org.junit.jupiter:junit-jupiter-params:$junitJupiterVersion")
-    testImplementation("org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion")
-    testImplementation("io.ktor:ktor-server-test-host-jvm:$ktorVersion")
+    testImplementation("org.junit.jupiter:junit-jupiter:$junitJupiterVersion")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
+    testImplementation("io.ktor:ktor-server-test-host-jvm:$ktorVersion") {
+        exclude(group = "org.eclipse.jetty")
+    }
+    constraints {
+        implementation("commons-codec:commons-codec:$commonsCodecVersion") {
+            because("override transient from io.ktor:ktor-server-test-host-jvm")
+        }
+    }
 }
 
 
 tasks {
-    withType<KotlinCompile> {
-        kotlinOptions.jvmTarget = jvmTargetVersion
-    }
 
-    named<KotlinCompile>("compileTestKotlin") {
-        kotlinOptions.jvmTarget = jvmTargetVersion
-    }
-
-    withType<ShadowJar> {
-        transform(ServiceFileTransformer::class.java) {
-            setPath("META-INF/cxf")
-            include("bus-extensions.txt")
-        }
-    }
-
-    withType<Test> {
-        useJUnitPlatform()
+    test {
+        useJUnitPlatform {}
         testLogging {
-            showStandardStreams = true
+            events("skipped", "failed")
+            showStackTraces = true
+            exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
         }
     }
 
