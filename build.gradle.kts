@@ -7,6 +7,7 @@ val junitJupiterVersion = "5.10.1"
 val logbackVersion = "1.4.11"
 val logstashEncoderVersion = "7.4"
 val kotlinVersion = "1.9.20"
+val javaVersion = JavaVersion.VERSION_21
 
 val commonsCodecVersion = "1.16.0"
 
@@ -53,6 +54,13 @@ dependencies {
 
 
 tasks {
+
+    compileKotlin {
+        kotlinOptions.jvmTarget = javaVersion.toString()
+    }
+    compileTestKotlin {
+        kotlinOptions.jvmTarget = javaVersion.toString()
+    }
 
     test {
         useJUnitPlatform {}
