@@ -2,7 +2,7 @@ group = "no.kartveit"
 version = "1.0.0-SNAPSHOT"
 
 
-val ktorVersion = "2.3.5"
+val ktorVersion = "2.3.6"
 val junitJupiterVersion = "5.10.1"
 val logbackVersion = "1.4.11"
 val logstashEncoderVersion = "7.4"
