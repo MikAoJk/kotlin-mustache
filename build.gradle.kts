@@ -13,7 +13,7 @@ val commonsCodecVersion = "1.16.0"
 
 plugins {
     id("application")
-    kotlin("jvm") version "1.9.20"
+    kotlin("jvm") version "1.9.21"
 }
 
 application {
