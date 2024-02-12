@@ -9,7 +9,7 @@ val logstashEncoderVersion = "7.4"
 val kotlinVersion = "1.9.22"
 val javaVersion = JavaVersion.VERSION_21
 
-val commonsCodecVersion = "1.16.0"
+val commonsCodecVersion = "1.16.1"
 
 plugins {
     id("application")
