@@ -4,7 +4,7 @@ version = "1.0.0-SNAPSHOT"
 
 val ktorVersion = "2.3.8"
 val junitJupiterVersion = "5.10.2"
-val logbackVersion = "1.4.14"
+val logbackVersion = "1.5.0"
 val logstashEncoderVersion = "7.4"
 val kotlinVersion = "1.9.22"
 val javaVersion = JavaVersion.VERSION_21
